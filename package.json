@@ -1,0 +1,34 @@
+{
+  "name": "lantern",
+  "version": "0.1.0",
+  "description": "Execution checker for loss-ledger claims: did the check standing in front of this harm actually run, in the run you are quoting?",
+  "license": "MIT",
+  "author": "FlossyPurse Studios",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flossypurse-studios/lantern.git"
+  },
+  "homepage": "https://github.com/flossypurse-studios/lantern",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "lantern": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2",
+    "vitest": "^3.2.7"
+  }
+}

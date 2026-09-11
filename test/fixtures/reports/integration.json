@@ -1,0 +1,25 @@
+{
+  "numTotalTestSuites": 1,
+  "numTotalTests": 2,
+  "numPassedTests": 2,
+  "numFailedTests": 0,
+  "success": true,
+  "testResults": [
+    {
+      "name": "/ci/workspace/app/test/integration/erasure-completeness.test.ts",
+      "status": "passed",
+      "assertionResults": [
+        {
+          "title": "clears every table named in the manifest",
+          "fullName": "erasure > clears every table named in the manifest",
+          "status": "passed"
+        },
+        {
+          "title": "reads back zero rows for the subject",
+          "fullName": "erasure > reads back zero rows for the subject",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

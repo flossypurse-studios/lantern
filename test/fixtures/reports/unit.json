@@ -1,0 +1,85 @@
+{
+  "numTotalTestSuites": 3,
+  "numTotalTests": 10,
+  "numPassedTests": 6,
+  "numFailedTests": 1,
+  "numPendingTests": 3,
+  "success": false,
+  "testResults": [
+    {
+      "name": "/ci/workspace/app/test/unit/refund-guards.test.ts",
+      "status": "passed",
+      "assertionResults": [
+        {
+          "title": "holds inside the cooldown",
+          "fullName": "ask guards > holds inside the cooldown",
+          "status": "passed"
+        },
+        {
+          "title": "asks once the cooldown lapses",
+          "fullName": "ask guards > asks once the cooldown lapses",
+          "status": "passed"
+        },
+        {
+          "title": "treats a holdback window as blocking",
+          "fullName": "ask guards > treats a holdback window as blocking",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "name": "/ci/workspace/app/test/unit/retention.test.ts",
+      "status": "passed",
+      "assertionResults": [
+        {
+          "title": "purges past the retention horizon",
+          "fullName": "retention > purges past the retention horizon",
+          "status": "passed"
+        },
+        {
+          "title": "keeps rows under legal hold",
+          "fullName": "retention > keeps rows under legal hold",
+          "status": "skipped"
+        },
+        {
+          "title": "reports what it purged",
+          "fullName": "retention > reports what it purged",
+          "status": "skipped"
+        }
+      ]
+    },
+    {
+      "name": "/ci/workspace/app/test/unit/holdback.test.ts",
+      "status": "failed",
+      "assertionResults": [
+        {
+          "title": "blocks inside the window",
+          "fullName": "holdback > blocks inside the window",
+          "status": "passed"
+        },
+        {
+          "title": "releases on the boundary day",
+          "fullName": "holdback > releases on the boundary day",
+          "status": "failed",
+          "failureMessages": ["expected 'hold' to be 'ask'"]
+        }
+      ]
+    },
+    {
+      "name": "/ci/workspace/app/test/unit/unrelated-helpers.test.ts",
+      "status": "passed",
+      "assertionResults": [
+        {
+          "title": "formats a date",
+          "fullName": "helpers > formats a date",
+          "status": "passed"
+        },
+        {
+          "title": "parses a date",
+          "fullName": "helpers > parses a date",
+          "status": "todo"
+        }
+      ]
+    }
+  ]
+}

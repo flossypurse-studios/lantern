@@ -1,0 +1,61 @@
+{
+  "config": {
+    "rootDir": "/ci/workspace/app"
+  },
+  "suites": [
+    {
+      "title": "e2e/checkout.spec.ts",
+      "file": "/ci/workspace/app/e2e/checkout.spec.ts",
+      "specs": [],
+      "suites": [
+        {
+          "title": "checkout",
+          "file": "/ci/workspace/app/e2e/checkout.spec.ts",
+          "specs": [
+            {
+              "title": "refuses a payment over the consent ceiling",
+              "ok": true,
+              "tests": [
+                {
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [{ "status": "passed" }]
+                }
+              ]
+            },
+            {
+              "title": "records the consent scope shown to the customer",
+              "ok": false,
+              "tests": [
+                {
+                  "expectedStatus": "passed",
+                  "status": "skipped",
+                  "results": [{ "status": "skipped" }]
+                }
+              ]
+            }
+          ],
+          "suites": []
+        }
+      ]
+    },
+    {
+      "title": "e2e/receipts.spec.ts",
+      "file": "/ci/workspace/app/e2e/receipts.spec.ts",
+      "specs": [
+        {
+          "title": "emails a receipt",
+          "ok": false,
+          "tests": [
+            {
+              "expectedStatus": "passed",
+              "status": "unexpected",
+              "results": [{ "status": "failed" }]
+            }
+          ]
+        }
+      ],
+      "suites": []
+    }
+  ]
+}
