@@ -25,7 +25,7 @@ never ran is never reported as a pass.
 ## Install
 
 ```
-npm install --save-dev lantern
+npm install --save-dev @flossypurse-studios/lantern
 ```
 
 Node 20 or newer. No runtime dependencies.

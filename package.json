@@ -1,6 +1,9 @@
 {
-  "name": "lantern",
+  "name": "@flossypurse-studios/lantern",
   "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Execution checker for loss-ledger claims: did the check standing in front of this harm actually run, in the run you are quoting?",
   "license": "MIT",
   "author": "FlossyPurse Studios",

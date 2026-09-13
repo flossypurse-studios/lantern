@@ -1,0 +1,46 @@
+name: publish
+
+# Publishes to npm via Trusted Publishing (OIDC). No NPM_TOKEN secret is needed:
+# GitHub mints a short-lived identity token, npm verifies it against the trusted
+# publisher registered for this package, and npm then generates and publishes a
+# provenance attestation binding this tarball to this workflow run and commit.
+#
+# PREREQUISITE, done once per package on the web:
+#   npmjs.com -> Packages -> <this package> -> Settings -> Trusted publishing
+#   Organization or user: flossypurse-studios
+#   Repository:           this repo
+#   Workflow filename:    publish.yml
+# Until that exists this workflow runs and fails at the publish step. It cannot
+# publish anything by accident.
+#
+# Node 24 + an explicit npm upgrade: trusted publishing needs npm >= 11.5.1 for OIDC
+# AUTH. Node 22 ships npm 10.x, which signs provenance fine and then falls back to
+# token auth on the upload itself, which the registry reports as a confusing E404.
+# Provenance is automatic under trusted publishing, so no --provenance flag.
+#
+# Trigger: push a tag matching v* (e.g. `git tag v0.1.0 && git push origin v0.1.0`),
+# or run manually via workflow_dispatch.
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm install -g npm@latest
+      - run: npm publish
